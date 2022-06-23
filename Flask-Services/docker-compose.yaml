@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  Service1:
+    image: prize-generator-front:v1
+    build: ./Service1
+    container_name: Service1
+    networks:
+      - example-net
+  Service2:
+    image: prize-generator-chars:v1
+    build: ./Service2
+    container_name: Service2
+    networks:
+      - example-net
+  Service3:
+    image: prize-generator-prizes:v1
+    build: ./Service3
+    container_name: Service3
+    networks:
+      - example-net
+  Service4:
+    image: prize-generator-prizes:v1
+    build: ./Service4
+    container_name: Service4
+    networks:
+      - example-net
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    networks:
+      - example-net
+    volumes:
+      - type: bind
+        source: ./nginx/conf
+        target: /etc/nginx/nginx.conf
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+networks:
+  example-net:
