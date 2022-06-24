@@ -13,7 +13,7 @@ services:
     networks:
       - example-net
   Service3:
-    image: prize-generator-prizes:v1
+    image: prize-generator-nums:v1
     build: ./Service3
     container_name: Service3
     networks:
@@ -31,7 +31,7 @@ services:
       - example-net
     volumes:
       - type: bind
-        source: ./nginx/conf
+        source: ./nginx.conf
         target: /etc/nginx/nginx.conf
     ports:
       - target: 80

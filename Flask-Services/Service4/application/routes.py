@@ -7,10 +7,10 @@ def prize():
         data_sent  = request.get_json()
         if data_sent['chars'][0] == 'a':
                 prizes = ([50]*3)+[100]
-                prize = '£'+ str(choice(prizes))
+                prize = "£"+ str(choice(prizes))
                 return prize
         elif int(data_sent['nums']) % 2 ==0:
                 return "£20"
         else:
-                return " No Prize for you"
+                return "No Prize for you"
         
