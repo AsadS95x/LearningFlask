@@ -15,7 +15,7 @@ class TestChars(TestBase):
         self.assert200(response)
         self.assertIn(b'aaa', response.data)
 
-class TestChars(TestBase):
+class TestChars2(TestBase):
     @patch('application.routes.choice', return_value='b')
     def test_get_chars_b(self, patched):
         response = self.client.get(url_for('get_text'))

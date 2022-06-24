@@ -1,4 +1,4 @@
-#!/bin.bash
+#!/bin/bash
 
 declare -a dirs=(Service1 Service2 Service3 Service4)
 

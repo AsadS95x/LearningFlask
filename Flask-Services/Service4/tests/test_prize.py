@@ -9,8 +9,9 @@ class TestBase(TestCase):
             return app
         
 class TestPrize(TestBase):
-    def test_prize(self):
-            response = self.client.post(url_for('prize'), json = {'chars':'abc'}, {'nums':'123456'} )
+    @patch('application.routes.choice', return_value='50')
+    def test_prize(self, patched):
+            response = self.client.post(url_for('prize'), json ={'chars':'abc', 'nums':'123456'})
             self.assert200(response)
             self.assertIn(b'50', response.data)
 

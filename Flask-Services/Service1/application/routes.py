@@ -3,6 +3,7 @@ from flask import render_template
 import requests
 
 @app.route('/', methods=['GET'])
+@app.route('/index', methods=['GET'])
 def get_text():
         chars = requests.get('http://Service2:5000/get_text').text
         nums = requests.get('http://Service3:5000/get_nums').text
